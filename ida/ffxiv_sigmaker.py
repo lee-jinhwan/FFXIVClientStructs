@@ -34,6 +34,7 @@ class GeneratedClass:
 @dataclass
 class GeneratedData:
     version: str
+    function_sigs: Dict[str, str] = field(default_factory=dict)
     global_sigs: Dict[str, str] = field(default_factory=dict)
     classes: Dict[str, Optional[GeneratedClass]] = field(default_factory=dict)
 
@@ -322,6 +323,7 @@ class FfxivSigmaker:
         Run the sigmaker
         :return: None
         """
+
         Log.debug('generating global sigs')
         total_globals = len(self.DATASTORE.globals)
         for (i, (global_ea, global_name)) in enumerate(self.DATASTORE.globals.items()):
@@ -341,6 +343,26 @@ class FfxivSigmaker:
                 self.GENERATED_DATASTORE.global_sigs[global_name] = sig
             else:
                 self.GENERATED_DATASTORE.global_sigs[global_name] = "None"
+
+        Log.debug('generating function sigs')
+        total_functions = len(self.DATASTORE.functions)
+        for (i, (function_ea, function_name)) in enumerate(self.DATASTORE.functions.items()):
+            status = f'{i}/{total_functions} ({i / total_functions:0.2%})'
+
+            if function_name in self.GENERATED_DATASTORE.function_sigs:
+                existing_sig = self.GENERATED_DATASTORE.function_sigs[function_name]
+                if existing_sig != "None":
+                    Log.debug(f'{status} // {function_name} // {function_ea:X} // has existing sig: {existing_sig}')
+                else:
+                    Log.debug(f'{status} // {function_name} // {function_ea:X} // failed sig generation on previous run')
+                continue
+
+            sig = self._sig_address(int(function_ea), True)
+            Log.debug(f'{status} // {function_name} // {function_ea:X} // {sig}')
+            if sig:
+                self.GENERATED_DATASTORE.function_sigs[function_name] = sig
+            else:
+                self.GENERATED_DATASTORE.function_sigs[function_name] = "None"
 
         Log.debug('generating class sigs')
         class_data: GameClass
