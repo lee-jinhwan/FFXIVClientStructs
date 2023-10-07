@@ -47,7 +47,7 @@ public enum NodeFlags : ushort {
 
 // size = 0xA8
 // ctor E9 ?? ?? ?? ?? 33 C0 48 83 C4 20 5B C3 66 90 
-[StructLayout(LayoutKind.Explicit, Size = 0xB0)]
+[StructLayout(LayoutKind.Explicit, Size = 0xA8)]
 public unsafe partial struct AtkResNode : ICreatable {
     [FieldOffset(0x0)] public AtkEventTarget AtkEventTarget;
     [FieldOffset(0x8)] public uint NodeID;
@@ -195,7 +195,7 @@ public unsafe partial struct AtkResNode : ICreatable {
     [MemberFunction("E8 ?? ?? ?? ?? 49 8D 7E 1E")]
     public partial float GetScaleY();
 
-    [MemberFunction("E8 ?? ?? ?? ?? F3 41 0F 58 F9")]
+    [MemberFunction("E8 ?? ?? ?? ?? 48 8D 7F 38")]
     public partial void SetScale(float X, float Y);
 
     [MemberFunction("E9 ?? ?? ?? ?? F3 0F 5E CA")]

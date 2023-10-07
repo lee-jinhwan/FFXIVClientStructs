@@ -3,7 +3,7 @@ using FFXIVClientStructs.FFXIV.Client.Graphics.Scene;
 namespace FFXIVClientStructs.FFXIV.Client.Game.Character;
 
 // ctor: E8 ?? ?? ?? ?? 48 8D 8F ?? ?? ?? ?? 48 8D 05 ?? ?? ?? ?? 48 89 59 ?? 48 89 01 E8 
-[StructLayout(LayoutKind.Explicit, Size = 0x1A8)]
+[StructLayout(LayoutKind.Explicit, Size = 0x190)]
 public unsafe partial struct DrawDataContainer {
     [FieldOffset(0x000)] public void** Vtable;
     [FieldOffset(0x008)] public Character* Parent;
@@ -26,20 +26,20 @@ public unsafe partial struct DrawDataContainer {
     [FieldOffset(0x074)] public byte MainHandFlags2;
 
     [Obsolete("Use Weapon(WeaponSlot.OffHand).ModelId", true)]
-    [FieldOffset(0x080)] public WeaponModelId OffHandModel;
+    [FieldOffset(0x078)] public WeaponModelId OffHandModel;
     [Obsolete("Use Weapon(WeaponSlot.OffHand).State", true)]
-    [FieldOffset(0x0DC)] public byte OffHandState;
+    [FieldOffset(0x0D4)] public byte OffHandState;
     [Obsolete("Use Weapon(WeaponSlot.OffHand).Flags1", true)]
-    [FieldOffset(0x0E2)] public ushort OffHandFlags1;
+    [FieldOffset(0x0DA)] public ushort OffHandFlags1;
     [Obsolete("Use Weapon(WeaponSlot.OffHand).Flags2", true)]
-    [FieldOffset(0x0E4)] public byte OffHandFlags2;
+    [FieldOffset(0x0DC)] public byte OffHandFlags2;
 
     [Obsolete("Use Weapon(WeaponSlot.Unk).ModelId", true)]
-    [FieldOffset(0x0F0)] public WeaponModelId UnkE0Model;
+    [FieldOffset(0x0E0)] public WeaponModelId UnkE0Model;
     [Obsolete("Use Weapon(WeaponSlot.Unk).Flags1", true)]
-    [FieldOffset(0x152)] public ushort Unk144Flags1;
+    [FieldOffset(0x142)] public ushort Unk144Flags1;
     [Obsolete("Use Weapon(WeaponSlot.Unk).Flags2", true)]
-    [FieldOffset(0x154)] public byte Unk144Flags2;
+    [FieldOffset(0x144)] public byte Unk144Flags2;
 
     [FieldOffset(0x010 + 3 * DrawObjectData.Size + 0x00)] public EquipmentModelId Head;
     [FieldOffset(0x010 + 3 * DrawObjectData.Size + 0x04)] public EquipmentModelId Top;
@@ -52,17 +52,17 @@ public unsafe partial struct DrawDataContainer {
     [FieldOffset(0x010 + 3 * DrawObjectData.Size + 0x20)] public EquipmentModelId RFinger;
     [FieldOffset(0x010 + 3 * DrawObjectData.Size + 0x24)] public EquipmentModelId LFinger;
 
-    [FieldOffset(0x188)] public CustomizeData CustomizeData;
+    [FieldOffset(0x170)] public CustomizeData CustomizeData;
 
-    [FieldOffset(0x1A2)] public uint Unk18A;
-    [FieldOffset(0x1A6)] public byte Flags1;
-    [FieldOffset(0x1A7)] public byte Flags2;
+    [FieldOffset(0x18A)] public uint Unk18A;
+    [FieldOffset(0x18E)] public byte Flags1;
+    [FieldOffset(0x18F)] public byte Flags2;
 
     [MemberFunction("E8 ?? ?? ?? ?? 41 B5 ?? FF C6")]
     public partial void LoadEquipment(EquipmentSlot slot, EquipmentModelId* modelId, bool force);
 
 
-    [MemberFunction("E8 ?? ?? ?? ?? 44 8B 9E")]
+    [MemberFunction("E8 ?? ?? ?? ?? 33 DB BE")]
     public partial void LoadWeapon(WeaponSlot slot, WeaponModelId weaponData, byte redrawOnEquality, byte unk2, byte skipGameObject, byte unk4);
 
     /// <summary>
@@ -139,7 +139,7 @@ public unsafe partial struct DrawDataContainer {
 // ctor: E8 ?? ?? ?? ?? 48 8B E8 EB ?? 33 ED 48 89 AB
 [StructLayout(LayoutKind.Explicit, Size = Size)]
 public unsafe partial struct DrawObjectData {
-    public const int Size = 0x70;
+    public const int Size = 0x68;
 
     [FieldOffset(0x00)] public WeaponModelId ModelId;
     [FieldOffset(0x10)] public void** VTable;

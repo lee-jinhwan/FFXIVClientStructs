@@ -1,7 +1,7 @@
 namespace FFXIVClientStructs.FFXIV.Client.Game.MJI;
 
-// ctor 1414E1770 ? - extends EventHandler
-[StructLayout(LayoutKind.Explicit, Size = 0xB78)]
+// ctor 1413EA840 ? - extends EventHandler
+[StructLayout(LayoutKind.Explicit, Size = 0xAE0)] // completely lost track of size
 public unsafe partial struct MJIPastureHandler {
     [FieldOffset(0x0)] public void* vtbl;
 
@@ -16,15 +16,15 @@ public unsafe partial struct MJIPastureHandler {
     /// the Companion EXD sheet. See <see cref="MinionSlots"/> if information about minion locations is required.
     /// </summary>
     // Warning: This array will change size every time new minions are added!! Should be the row count of the Companion sheet.
-    [FixedSizeArray<bool>(512)]
-    [FieldOffset(0x6F8)] public fixed byte RoamingMinions[512];
+    [FixedSizeArray<bool>(496)]
+    [FieldOffset(0x6F8)] public fixed byte RoamingMinions[496];
 
     /// <summary>
     /// An array containing information on all the minion slots present on the Island Sanctuary.
     /// This array is indexed by an internal ID and does not appear to be grouped by location or similar.
     /// </summary>
     [FixedSizeArray<MJIMinionSlot>(50)]
-    [FieldOffset(0x8F8)] public fixed byte MinionSlots[50 * MJIMinionSlot.Size];
+    [FieldOffset(0x8E8)] public fixed byte MinionSlots[50 * MJIMinionSlot.Size];
 
     /// <summary>
     /// Gets the current number of minions roaming the Island Sanctuary.

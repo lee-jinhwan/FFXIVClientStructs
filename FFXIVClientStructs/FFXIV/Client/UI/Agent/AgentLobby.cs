@@ -7,7 +7,7 @@ namespace FFXIVClientStructs.FFXIV.Client.UI.Agent;
 // ctor "E8 ?? ?? ?? ?? EB 03 48 8B C5 45 33 C9 48 89 47 20"
 [Agent(AgentId.Lobby)]
 [VTableAddress("48 8D 05 ?? ?? ?? ?? 48 89 71 18 48 89 01", 3)]
-[StructLayout(LayoutKind.Explicit, Size = 0x1DF8)]
+[StructLayout(LayoutKind.Explicit, Size = 0x1DD0)]
 public unsafe partial struct AgentLobby {
     [FieldOffset(0)] public AgentInterface AgentInterface;
 
@@ -34,7 +34,7 @@ public unsafe partial struct AgentLobby {
 
     [FieldOffset(0x1DA4)] public bool HasShownCharacterNotFound; // "The character you last logged out with in this play environment could not be found on the current data center."
 
-    [MemberFunction("E8 ?? ?? ?? ?? 84 C0 74 07 C6 86 ?? ?? ?? ?? ?? 48 8B 8C 24")]
+    [MemberFunction("E8 ?? ?? ?? ?? 84 C0 74 07 C6 87 ?? ?? ?? ?? ?? 48 8B 4C 24")]
     public readonly partial void UpdateCharaSelectDisplay(sbyte index, bool a2);
 
     [MemberFunction("E8 ?? ?? ?? ?? EB 4A 84 C0")]
@@ -48,7 +48,7 @@ public unsafe partial struct LobbyData {
 
     [FieldOffset(0x858)] public StdVector<Pointer<CharaSelectCharacterEntry>> CharaSelectEntries;
 
-    [MemberFunction("E8 ?? ?? ?? ?? 48 85 C0 74 95")]
+    [MemberFunction("E8 ?? ?? ?? ?? 48 8B 48 08 49 89 8C 24")]
     public partial CharaSelectCharacterEntry* GetCharacterEntryByIndex(int a2, int worldIndex, int characterMappingIndex);
 }
 

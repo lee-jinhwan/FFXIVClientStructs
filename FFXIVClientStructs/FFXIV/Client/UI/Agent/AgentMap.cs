@@ -8,7 +8,7 @@ namespace FFXIVClientStructs.FFXIV.Client.UI.Agent;
 //   Client::UI::Agent::AgentInterface
 //     Component::GUI::AtkModuleInterface::AtkEventInterface
 [Agent(AgentId.Map)]
-[StructLayout(LayoutKind.Explicit, Size = 0x12AB8)]
+[StructLayout(LayoutKind.Explicit, Size = 0x11F70)]
 public unsafe partial struct AgentMap {
     [FieldOffset(0x0)] public AgentInterface AgentInterface;
 
@@ -59,25 +59,25 @@ public unsafe partial struct AgentMap {
     [FieldOffset(0x5960)] public uint SelectedMapDiscoveryFlag;
     [FieldOffset(0x5964)] public uint SelectedMapSub;
 
-    [FieldOffset(0x597C)] public uint UpdateFlags;
+    [FieldOffset(0x5974)] public uint UpdateFlags;
 
-    [FieldOffset(0x5A1B)] public byte MapMarkerCount;
-    [FieldOffset(0x5A1C)] public byte TempMapMarkerCount;
-    [FieldOffset(0x5A1E)] public byte IsFlagMarkerSet;
-    [FieldOffset(0x5A20)] public byte MiniMapMarkerCount;
-    [FieldOffset(0x5A28)] public byte IsPlayerMoving;
-    [FieldOffset(0x5A30)] public byte IsControlKeyPressed;
+    [FieldOffset(0x5A12)] public byte MapMarkerCount;
+    [FieldOffset(0x5A13)] public byte TempMapMarkerCount;
+    [FieldOffset(0x5A15)] public byte IsFlagMarkerSet;
+    [FieldOffset(0x5A17)] public byte MiniMapMarkerCount;
+    [FieldOffset(0x5A1F)] public byte IsPlayerMoving;
+    [FieldOffset(0x5A27)] public byte IsControlKeyPressed;
 
-    [FieldOffset(0x5E38)] public QuestLinkContainer MapQuestLinkContainer;
-    [FieldOffset(0x6990)] public QuestLinkContainer MiniMapQuestLinkContainer;
+    [FieldOffset(0x5E30)] public QuestLinkContainer MapQuestLinkContainer;
+    [FieldOffset(0x68E8)] public QuestLinkContainer MiniMapQuestLinkContainer;
 
-    [MemberFunction("E8 ?? ?? ?? ?? E9 ?? ?? ?? ?? 48 8B 4B 10 48 85 C9")]
+    [MemberFunction("E8 ?? ?? ?? ?? 48 8D 4C 24 ?? E8 ?? ?? ?? ?? 33 ED 48 8D 15")]
     public partial void SetFlagMapMarker(uint territoryId, uint mapId, float mapX, float mapY, uint iconId = 0xEC91);
 
     [MemberFunction("E8 ?? ?? ?? ?? 48 8B 5C 24 ?? B0 ?? 48 8B B4 24")]
     public partial void OpenMapByMapId(uint mapId);
 
-    [MemberFunction("E8 ?? ?? ?? ?? 49 8B 45 28 48 8D 8C 24")]
+    [MemberFunction("E8 ?? ?? ?? ?? 81 A7 ?? ?? ?? ?? ?? ?? ?? ?? 8D 55 05")]
     public partial void OpenMap(OpenMapInfo* data);
 
     [MemberFunction("48 89 5C 24 ?? 48 89 6C 24 ?? 48 89 7C 24 ?? 41 54 41 55 41 56 48 83 EC 20")]
@@ -207,7 +207,7 @@ public struct OpenMapInfo {
     // there is a lot more stuff in here depending on what type of map it's used for
 }
 
-[StructLayout(LayoutKind.Explicit, Size = 0xB58)]
+[StructLayout(LayoutKind.Explicit, Size = 0xAB8)]
 public unsafe partial struct QuestLinkContainer {
     [FieldOffset(0x08)] public ushort MarkerCount;
 

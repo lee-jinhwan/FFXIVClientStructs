@@ -6,7 +6,7 @@ namespace FFXIVClientStructs.FFXIV.Client.UI.Agent;
 
 // size = 0xDB8
 // ctor E8 ?? ?? ?? ?? 48 8B 85 ?? ?? ?? ?? 49 8B CF 48 89 87
-[StructLayout(LayoutKind.Explicit, Size = 0xDF8)]
+[StructLayout(LayoutKind.Explicit, Size = 0xDB8)]
 public unsafe partial struct AgentModule {
     public static AgentModule* Instance() => Framework.Instance()->GetUiModule()->GetAgentModule();
 
@@ -339,45 +339,45 @@ public enum AgentId : uint {
     RhythmAction = 322,
     WeddingNotification = 323,
 
-    Emj = 324, //Mahjong
+    Emj = 323, //Mahjong
 
-    EmjIntro = 327,
-    AozContentBriefing = 328, //Masked Carnivale
-    AozContentResult = 329,
-    WorldTravel = 330,
-    RideShooting = 331, //Airforce One
+    EmjIntro = 326,
+    AozContentBriefing = 327, //Masked Carnivale
+    AozContentResult = 328,
+    WorldTravel = 329,
+    RideShooting = 330, //Airforce One
 
-    Credit = 333,
-    EmjSetting = 334, //Mahjong Settings
-    RetainerList = 335,
-    QIBCStatus = 336,
+    Credit = 332,
+    EmjSetting = 333, //Mahjong Settings
+    RetainerList = 334,
+    QIBCStatus = 335,
 
-    Dawn = 340, //Trust
-    DawnStory = 341, //Duty Support
-    HousingCatalogPreview = 342,
+    Dawn = 339, //Trust
+    DawnStory = 340, //Duty Support
+    HousingCatalogPreview = 341,
 
-    SubmersibleExplorationMapSelect = 344,
-    QuestRedo = 345,
-    QuestRedoHud = 346,
+    SubmersibleExplorationMapSelect = 343,
+    QuestRedo = 344,
+    QuestRedoHud = 345,
 
-    CircleList = 348, //Fellowships
-    CircleBook = 349,
+    CircleList = 347, //Fellowships
+    CircleBook = 348,
 
-    CircleFinder = 354,
+    CircleFinder = 353,
 
-    MentorCondition = 356,
-    PerformanceMetronome = 357,
-    PerformanceGamepadGuide = 358,
+    MentorCondition = 355,
+    PerformanceMetronome = 356,
+    PerformanceGamepadGuide = 357,
 
-    PerformanceReadyCheck = 360,
+    PerformanceReadyCheck = 359,
 
-    HwdAetherGauge = 364,
+    HwdAetherGauge = 363,
 
-    HwdScore = 366,
+    HwdScore = 365,
 
-    HwdMonument = 368,
-    McGuffin = 369, //Collection
-    CraftActionSimulator = 370,
+    HwdMonument = 367,
+    McGuffin = 368, //Collection
+    CraftActionSimulator = 369,
 
     //Ocean Fishing
     IKDSchedule = 371,

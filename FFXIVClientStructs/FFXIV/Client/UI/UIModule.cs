@@ -10,7 +10,7 @@ namespace FFXIVClientStructs.FFXIV.Client.UI;
 
 // Client::UI::UIModule
 //   Client::UI::UIModuleInterface
-[StructLayout(LayoutKind.Explicit, Size = 0xEE030)]
+[StructLayout(LayoutKind.Explicit, Size = 0xEC1E0)]
 [VTableAddress("48 8D 05 ?? ?? ?? ?? 4C 89 61 ?? 4C 8B F2", 3)]
 public unsafe partial struct UIModule {
     public static UIModule* Instance() => Framework.Instance()->GetUiModule();
@@ -123,107 +123,107 @@ public unsafe partial struct UIModule {
     [VirtualFunction(58)]
     public partial BannerModule* GetBannerModule();
 
-    [VirtualFunction(65)]
+    [VirtualFunction(64)]
     public partial UIInputData* GetUIInputData();
 
-    [VirtualFunction(66)]
+    [VirtualFunction(65)]
     public partial void* GetUIInputModule();
 
-    [VirtualFunction(68)]
+    [VirtualFunction(67)]
     public partial void* GetLogFilterConfig();
 
-    [VirtualFunction(76)]
+    [VirtualFunction(75)]
     public partial bool EnterGPose();
 
-    [VirtualFunction(77)]
+    [VirtualFunction(76)]
     public partial void ExitGPose();
 
-    [VirtualFunction(78)]
+    [VirtualFunction(77)]
     public partial bool IsInGPose();
 
-    [VirtualFunction(79)]
+    [VirtualFunction(78)]
     public partial void EnterIdleCam(byte a1 = 0, ulong focusObject = 0xE0000000);
 
-    [VirtualFunction(80)]
+    [VirtualFunction(79)]
     public partial void ExitIdleCam();
 
-    [VirtualFunction(81)]
+    [VirtualFunction(80)]
     public partial bool IsInIdleCam();
 
-    [VirtualFunction(143)]
+    [VirtualFunction(141)]
     public partial void ToggleUi(UiFlags flags, bool enable, bool unknown = true);
 
-    [VirtualFunction(153)]
+    [VirtualFunction(151)]
     public partial void ShowGoldSaucerReward(byte type, uint mgp, uint rewardItemId, uint rewardItemCount);
 
-    [VirtualFunction(154)]
+    [VirtualFunction(152)]
     public partial void HideGoldSaucerReward();
 
-    [VirtualFunction(155)]
+    [VirtualFunction(153)]
     public partial void ShowTextRelicAtma(uint itemId);
 
-    [VirtualFunction(163)]
+    [VirtualFunction(160)]
     public partial void ShowHousingHarvest(uint itemId, int amount, uint image = 0);
 
-    [VirtualFunction(167)]
+    [VirtualFunction(164)]
     public partial void ShowImage(uint imageId, bool useLocalePath = false, int displayType = 0, bool playSound = false);
 
-    [VirtualFunction(168)]
+    [VirtualFunction(165)]
     [GenerateCStrOverloads]
     public partial void ShowText(int position, byte* text, uint iconOrCheck1 = 0, bool playSound = true, uint iconOrCheck2 = 0, bool alsoPlaySound = true);
 
-    [VirtualFunction(169)]
+    [VirtualFunction(166)]
     public partial void ShowTextChain(int chain, int hqChain = 0);
 
-    [VirtualFunction(170)]
+    [VirtualFunction(167)]
     [GenerateCStrOverloads]
     public partial void ShowAreaText(byte* text, int layer = 0, bool isTop = true, bool isFast = false, uint logMessageId = 0);
 
-    [VirtualFunction(171)]
+    [VirtualFunction(168)]
     [GenerateCStrOverloads]
     public partial void ShowPoisonText(byte* text, int layer = 0);
 
-    [VirtualFunction(172)]
+    [VirtualFunction(169)]
     [GenerateCStrOverloads]
     public partial void ShowErrorText(byte* text, bool forceVisible = true);
 
-    [VirtualFunction(173)]
+    [VirtualFunction(170)]
     public partial void ShowTextClassChange(uint classJobId);
 
-    [VirtualFunction(174)]
+    [VirtualFunction(171)]
     public partial void ShowGetAction(ActionType actionType, uint actionId);
 
-    [VirtualFunction(175)]
+    [VirtualFunction(172)]
     public partial void ShowLocationTitle(int territoryId, bool zoomAnim, bool restartAnim, int* language /*-1 = client lang*/);
 
-    [VirtualFunction(179)]
+    [VirtualFunction(176)]
     public partial void ShowGrandCompany1(uint gc, uint gcRank, bool playSound = true);
 
-    [VirtualFunction(182)]
+    [VirtualFunction(189)]
     public partial void ShowStreak(int streak, int streakType);
 
-    [VirtualFunction(183)]
+    [VirtualFunction(180)]
     public partial void ShowAddonKillStreakForManeuvers(int streak, int streakType);
 
-    [VirtualFunction(184)]
+    [VirtualFunction(181)]
     public partial void ShowBalloonMessage(float* worldPosition, byte pz, uint textImage); //121501 -> Nice Shot!
 
-    [VirtualFunction(185)]
+    [VirtualFunction(182)]
     [GenerateCStrOverloads]
     public partial void ShowBattleTalk(byte* name, byte* text, float duration, byte style);
 
-    [VirtualFunction(186)]
+    [VirtualFunction(183)]
     [GenerateCStrOverloads]
     public partial void ShowBattleTalkImage(byte* name, byte* text, float duration, uint image, byte style);
 
-    [VirtualFunction(188)]
+    [VirtualFunction(185)]
     [GenerateCStrOverloads]
     public partial void ShowBattleTalkSound(byte* name, byte* text, float duration, int sound, byte style);
 
-    [VirtualFunction(193)]
+    [VirtualFunction(190)]
     public partial void ExecuteMainCommand(uint command);
 
-    [VirtualFunction(194)]
+    [VirtualFunction(191)]
     public partial bool IsMainCommandUnlocked(uint command);
 
     [MemberFunction("E8 ?? ?? ?? ?? 4D 39 BE")]

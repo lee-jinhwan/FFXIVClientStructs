@@ -5,8 +5,8 @@ namespace FFXIVClientStructs.FFXIV.Client.Graphics.Kernel;
 //   Client::Graphics::ReferencedClassBase
 
 // ctor E8 ?? ?? ?? ?? 8B 55 18 48 8B F0
-// size = 0x418
-[StructLayout(LayoutKind.Explicit, Size = 0x418)]
+// size = 0x408
+[StructLayout(LayoutKind.Explicit, Size = 0x408)]
 public unsafe struct ShaderPackage {
     public const ushort SamplerSlotMaterial = 2;
 
@@ -46,34 +46,34 @@ public unsafe struct ShaderPackage {
     [FieldOffset(0x78)] public ushort ConstantCount;
     [FieldOffset(0x7C)] public ushort SamplerCount;
     [FieldOffset(0x80)] public ushort UnkCount;
-    [FieldOffset(0x84)] public ushort Unk2Count;
+    [FieldOffset(0x80)] public ushort Unk2Count;
 
-    [FieldOffset(0x88)]
+    [FieldOffset(0x84)]
     public ushort SystemKeyCount; // keys are all CRC32 but no idea what bytes they are actually CRC32s of 
 
-    [FieldOffset(0x8C)] public ushort SceneKeyCount;
+    [FieldOffset(0x88)] public ushort SceneKeyCount;
 
-    [FieldOffset(0x90)] public ushort MaterialKeyCount;
+    [FieldOffset(0x8C)] public ushort MaterialKeyCount;
 
     // following are arrays
     // these are all pre-allocated with the ShaderPackage object in one block of memory
-    [FieldOffset(0x98)] public MaterialElement* MaterialElements;
-    [FieldOffset(0xA0)] public ConstantSamplerUnknown* Constants;
-    [FieldOffset(0xA8)] public ConstantSamplerUnknown* Samplers;
+    [FieldOffset(0x90)] public MaterialElement* MaterialElements;
+    [FieldOffset(0x98)] public ConstantSamplerUnknown* Constants;
+    [FieldOffset(0xA0)] public ConstantSamplerUnknown* Samplers;
 
-    [FieldOffset(0xB0)] public ConstantSamplerUnknown* Unknowns;
-    [FieldOffset(0xB8)] public ConstantSamplerUnknown* Unknowns2;
+    [FieldOffset(0xA8)] public ConstantSamplerUnknown* Unknowns;
+    [FieldOffset(0xA8)] public ConstantSamplerUnknown* Unknowns2;
 
     // again these are all CRC32s
-    [FieldOffset(0xC0)] public uint* SystemKeys;
-    [FieldOffset(0xC8)] public uint* SceneKeys;
-    [FieldOffset(0xD0)] public uint* MaterialKeys;
-    [FieldOffset(0xD8)] public uint* SystemValues;
-    [FieldOffset(0xE0)] public uint* SceneValues;
-    [FieldOffset(0xE8)] public uint* MaterialValues;
-    [FieldOffset(0xF0)] public uint SubviewValue1;
-    [FieldOffset(0xF4)] public uint SubviewValue2;
-    [FieldOffset(0xF8)] public void* ShaderNodeTreeVtbl; // class I haven't defined yet
+    [FieldOffset(0xB0)] public uint* SystemKeys;
+    [FieldOffset(0xB8)] public uint* SceneKeys;
+    [FieldOffset(0xC0)] public uint* MaterialKeys;
+    [FieldOffset(0xC8)] public uint* SystemValues;
+    [FieldOffset(0xD0)] public uint* SceneValues;
+    [FieldOffset(0xD8)] public uint* MaterialValues;
+    [FieldOffset(0xE0)] public uint SubviewValue1;
+    [FieldOffset(0xE4)] public uint SubviewValue2;
+    [FieldOffset(0xE8)] public void* ShaderNodeTreeVtbl; // class I haven't defined yet
 
     public readonly Span<MaterialElement> MaterialElementsSpan
         => new(MaterialElements, MaterialElementCount);

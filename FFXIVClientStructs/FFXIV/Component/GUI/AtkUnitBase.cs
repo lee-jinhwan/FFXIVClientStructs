@@ -89,7 +89,7 @@ public unsafe partial struct AtkUnitBase {
 
     /// <param name="arrayType">0 for StringArrayData or 1 for NumberArrayData</param>
     /// <param name="arrayIndex">The index in AtkArrayDataHolder</param>
-    [MemberFunction("E8 ?? ?? ?? ?? 44 8D 43 7A")]
+    [MemberFunction("E8 ?? ?? ?? ?? 44 8D 43 79")]
     public partial void SubscribeAtkArrayData(byte arrayType, byte arrayIndex);
 
     /// <param name="arrayType">0 for StringArrayData or 1 for NumberArrayData</param>
@@ -149,35 +149,35 @@ public unsafe partial struct AtkUnitBase {
     [VirtualFunction(18)]
     public partial bool ShouldCollideWithWindow(AtkCollisionNode* collisionNode);
 
-    [VirtualFunction(40)]
+    [VirtualFunction(39)]
     public partial void Initialize();
 
     /// <remarks>
     /// The name "Finalizer" is used instead of "Finalize" to avoid conflicts
     /// with the <see cref="System.Object.Finalize"/> method.
     /// </remarks>
-    [VirtualFunction(41)]
+    [VirtualFunction(40)]
     public partial void Finalizer();
 
-    [VirtualFunction(42)]
+    [VirtualFunction(41)]
     public partial void Update(float delta);
 
-    [VirtualFunction(43)]
+    [VirtualFunction(42)]
     public partial void Draw();
 
-    [VirtualFunction(48)]
+    [VirtualFunction(47)]
     public partial void OnSetup(uint a2, AtkValue* atkValues);
 
-    [VirtualFunction(50)]
+    [VirtualFunction(49)]
     public partial void OnRefresh(uint numValues, AtkValue* values);
 
-    [VirtualFunction(51)]
+    [VirtualFunction(50)]
     public partial void OnUpdate(NumberArrayData** numberArrayData, StringArrayData** stringArrayData);
 
-    [VirtualFunction(61)]
+    [VirtualFunction(60)]
     public partial void OnMouseOver();
 
-    [VirtualFunction(62)]
+    [VirtualFunction(61)]
     public partial void OnMouseOut();
 
     [MemberFunction("E9 ?? ?? ?? ?? 48 8D 05 ?? ?? ?? ?? 48 8D 15")]

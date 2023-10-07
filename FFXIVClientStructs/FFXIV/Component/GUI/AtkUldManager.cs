@@ -92,6 +92,6 @@ public unsafe partial struct AtkUldManager {
         return (AtkCollisionNode*)CreateAtkNodeInternal(NodeType.Collision);
     }
 
-    [MemberFunction("E8 ?? ?? ?? ?? 49 8B 4F 10 41 8B C4")]
+    [MemberFunction("E8 ?? ?? ?? ?? 49 8B 4E 10 8B C5")]
     public partial void UpdateDrawNodeList();
 }

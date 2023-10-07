@@ -3,7 +3,7 @@ using FFXIVClientStructs.FFXIV.Client.Graphics.Scene;
 
 namespace FFXIVClientStructs.FFXIV.Client.Graphics.Environment;
 
-[StructLayout(LayoutKind.Explicit, Size = 0x910)]
+[StructLayout(LayoutKind.Explicit, Size = 0x900)]
 public unsafe partial struct EnvManager {
     [FieldOffset(0x08)] public EnvScene* EnvScene;
     [FieldOffset(0x10)] public float DayTimeSeconds;
@@ -25,6 +25,6 @@ public unsafe partial struct EnvManager {
 
     [FieldOffset(0x8F4)] public uint UnkFlags;
 
-    [StaticAddress("48 8B 35 ?? ?? ?? ?? 80 BE 7B 03 00 00 80", 3, isPointer: true)]
+    [StaticAddress("48 8B 35 ?? ?? ?? ?? 80 BE 73 03 00 00 80", 3, isPointer: true)] // TODO 6.40
     public static partial EnvManager* Instance();
 }
