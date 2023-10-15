@@ -5,7 +5,7 @@ namespace FFXIVClientStructs.FFXIV.Component.GUI;
 public unsafe partial struct AtkEventManager {
     [FieldOffset(0x0)] public AtkEvent* Event; // linked list of events using AtkEvent->NextEvent
 
-    [MemberFunction("E8 ?? ?? ?? ?? 44 88 BF")]
+    [MemberFunction("E8 ?? ?? ?? ?? 4C 39 BD")]
     public partial void RegisterEvent(AtkEventType eventType, uint eventParam, AtkResNode* nodeParam, AtkEventTarget* target, AtkEventListener* listener, bool systemEvent);
 
     [MemberFunction("48 89 5C 24 ?? 48 89 6C 24 ?? 48 89 74 24 ?? 57 41 56 41 57 48 83 EC ?? 48 8B 05 ?? ?? ?? ?? 45 32 D2")]

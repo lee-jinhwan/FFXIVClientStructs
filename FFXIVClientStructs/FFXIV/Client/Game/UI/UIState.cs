@@ -27,46 +27,46 @@ public unsafe partial struct UIState {
     [FieldOffset(0x2B18)] public AreaInstance AreaInstance; // at vtbl - 0x10
     [FieldOffset(0x2FE0)] public Loot Loot;
 
-    [FieldOffset(0x3C80)] public RecipeNote RecipeNote;
+    [FieldOffset(0x3C60)] public RecipeNote RecipeNote;
 
-    [FieldOffset(0xA800)] public Director* ActiveDirector;
-    [FieldOffset(0xA948)] public FateDirector* FateDirector;
+    [FieldOffset(0xA7C8)] public Director* ActiveDirector;
+    [FieldOffset(0xA910)] public FateDirector* FateDirector;
 
-    [FieldOffset(0xAA90)] public Map Map;
+    [FieldOffset(0xAA58)] public Map Map;
 
-    [FieldOffset(0xEA80)] public MarkingController MarkingController;
-    [FieldOffset(0xED60)] public LimitBreakController LimitBreakController;
+    [FieldOffset(0xEA40)] public MarkingController MarkingController;
+    [FieldOffset(0xECF0)] public LimitBreakController LimitBreakController;
 
-    [FieldOffset(0x11A28)] public RouletteController RouletteController;
-    [FieldOffset(0x11AF8)] public ContentsFinder ContentsFinder;
-    [FieldOffset(0x11C10)] public MobHunt MobHunt;
+    [FieldOffset(0x119B8)] public RouletteController RouletteController;
+    [FieldOffset(0x11A88)] public ContentsFinder ContentsFinder;
+    [FieldOffset(0x11BA0)] public MobHunt MobHunt;
 
     // Ref: UIState#IsUnlockLinkUnlocked (relative to uistate)
     // Size: Offset of UnlockedAetherytesBitmask - Offset of UnlockLinkBitmask
-    [FieldOffset(0x16AF4)] public fixed byte UnlockLinkBitmask[0x40];
+    [FieldOffset(0x169FC)] public fixed byte UnlockLinkBitmask[0x40];
 
     // Ref: Telepo#UpdateAetheryteList (in the Aetheryte sheet loop)
     // Size: Number of rows in Aetheryte sheet >> 3
-    [FieldOffset(0x16B34)] public fixed byte UnlockedAetherytesBitmask[200 >> 3];
+    [FieldOffset(0x16A3C)] public fixed byte UnlockedAetherytesBitmask[200 >> 3];
 
     // Ref: "E8 ?? ?? ?? ?? 48 83 6F ?? ?? 75 06 48 89 77 68"
     // Size: Number of rows in HowTo sheet >> 3
-    [FieldOffset(0x16B4E)] public fixed byte UnlockedHowtoBitmask[288 >> 3];
+    [FieldOffset(0x16A56)] public fixed byte UnlockedHowtoBitmask[288 >> 3];
 
     // Ref: g_Client::Game::UI::UnlockedCompanionsMask
     //      direct ref: "48 8D 0D ?? ?? ?? ?? 0F B6 04 08 84 D0 75 10 B8 ?? ?? ?? ?? 48 8B 5C 24"
     //      relative to uistate: "E8 ?? ?? ?? ?? 84 C0 75 A6 32 C0" (case for 0x355)
     // Size: Number of rows in Companion sheet >> 3
-    [FieldOffset(0x16B72)] public fixed byte UnlockedCompanionsBitmask[496 >> 3];
+    [FieldOffset(0x16A7A)] public fixed byte UnlockedCompanionsBitmask[496 >> 3];
 
     // Ref: "42 0F B6 04 30 44 84 C0"
     // Size: Number of rows in ChocoboTaxiStand sheet >> 3
-    [FieldOffset(0x16BB0)] public fixed byte ChocoboTaxiStandsBitmask[87 >> 3];
+    [FieldOffset(0x16AB6)] public fixed byte ChocoboTaxiStandsBitmask[87 >> 3];
 
     // Ref: UIState#IsCutsceneSeen
     // Size: Max CutsceneWorkIndex.WorkIndex id >> 3
     //       (just check inside IsCutsceneSeen function for max WorkIndex id)
-    [FieldOffset(0x16BBC)] public fixed byte CutsceneSeenBitmask[1248 >> 3];
+    [FieldOffset(0x16AC2)] public fixed byte CutsceneSeenBitmask[1248 >> 3];
 
     [StaticAddress("48 8D 0D ?? ?? ?? ?? E8 ?? ?? ?? ?? 48 8B 8B ?? ?? ?? ?? 48 8B 01", 3)]
     public static partial UIState* Instance();

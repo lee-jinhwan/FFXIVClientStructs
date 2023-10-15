@@ -12,15 +12,15 @@ public unsafe partial struct BattleChara {
     [FieldOffset(0x0)] public Character Character;
 
     [Obsolete("Use GetStatusManager", true)]
-    [FieldOffset(0x1B80)] public StatusManager StatusManager;
+    [FieldOffset(0x1B60)] public StatusManager StatusManager;
 
     [Obsolete("Use GetCastInfo", true)]
-    [FieldOffset(0x1D10)] public Character.CastInfo SpellCastInfo;
+    [FieldOffset(0x1CF0)] public Character.CastInfo SpellCastInfo;
 
     //[FieldOffset(0x1E60)] public fixed byte UnkBattleCharaStruct[0xF00];
 
     [Obsolete("Use GetForayInfo", true)]
-    [FieldOffset(0x2D80)] public Character.ForayInfo Foray;
+    [FieldOffset(0x2D60)] public Character.ForayInfo Foray;
 
     public StatusManager* GetStatusManager => Character.GetStatusManager();
     public Character.CastInfo* GetCastInfo => Character.GetCastInfo();

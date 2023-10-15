@@ -11,7 +11,7 @@ namespace FFXIVClientStructs.FFXIV.Client.Game.Character;
 
 // size = 0x1B40
 // ctor E8 ?? ?? ?? ?? 48 8B C8 48 8B 43 08 45 33 C9
-[StructLayout(LayoutKind.Explicit, Size = 0x1B40)]
+[StructLayout(LayoutKind.Explicit, Size = 0x1B20)]
 [VTableAddress("48 8d 05 ?? ?? ?? ?? 48 8b d9 48 89 01 48 8d 05 ?? ?? ?? ?? 48 89 81 a0 01 00 00 48 8d 05 ?? ?? ?? ??", 3)]
 public unsafe partial struct Character {
     [FieldOffset(0x0)] public GameObject GameObject;
@@ -72,19 +72,19 @@ public unsafe partial struct Character {
     [FieldOffset(0x620)] public EmoteController EmoteController;
     [FieldOffset(0x620 + 0x21), Obsolete("Use EmoteController.CPoseState", true)] public byte CPoseState;
 
-    [FieldOffset(0x660)] public MountContainer Mount;
-    [FieldOffset(0x6C8)] public CompanionContainer Companion;
+    [FieldOffset(0x650)] public MountContainer Mount;
+    [FieldOffset(0x6B0)] public CompanionContainer Companion;
 
-    [FieldOffset(0x6E8)] public DrawDataContainer DrawData;
-    [Obsolete($"Use {nameof(DrawData)}", true), FieldOffset(0x6E8 + 0x148)] public fixed byte EquipSlotData[4 * 10];
-    [Obsolete($"Use {nameof(DrawData)}.CustomizeData", true), FieldOffset(0x6E8 + 0x170)] public fixed byte CustomizeData[0x1A];
+    [FieldOffset(0x6D0)] public DrawDataContainer DrawData;
+    [Obsolete($"Use {nameof(DrawData)}", true), FieldOffset(0x6D8 + 0x148)] public fixed byte EquipSlotData[4 * 10];
+    [Obsolete($"Use {nameof(DrawData)}.CustomizeData", true), FieldOffset(0x6D8 + 0x170)] public fixed byte CustomizeData[0x1A];
 
-    [FieldOffset(0x878)] public OrnamentContainer Ornament;
-    [FieldOffset(0x8E0)] public ReaperShroudContainer ReaperShroud;
-    [FieldOffset(0x920)] public ActionTimelineManager ActionTimelineManager;
+    [FieldOffset(0x860)] public OrnamentContainer Ornament;
+    [FieldOffset(0x8B0)] public ReaperShroudContainer ReaperShroud;
+    [FieldOffset(0x8F0)] public ActionTimelineManager ActionTimelineManager;
 
     [Obsolete($"Use {nameof(LookTargetId)} instead.", true)]
-    [FieldOffset(0xCB0)] public uint PlayerTargetObjectID; // offset not updated for 6.5
+    [FieldOffset(0xC80)] public uint PlayerTargetObjectID; // offset not updated for 6.5
 
     /// <summary>
     /// The current target for this character's gaze. Can be set independently of soft or hard targets, and may be set
@@ -94,35 +94,35 @@ public unsafe partial struct Character {
     /// <remarks>
     /// Unlike other GameObjectIDs, this one appears to be set to fully 0 if the player is not looking at anything.
     /// </remarks>
-    [FieldOffset(0xCB0)] public GameObjectID LookTargetId;
+    [FieldOffset(0xC80)] public GameObjectID LookTargetId;
 
-    [FieldOffset(0x19B0)] public VfxContainer Vfx;
+    [FieldOffset(0x1980)] public VfxContainer Vfx;
 
     [Obsolete("Use Vfx.VfxData", true)]
-    [FieldOffset(0x19B0 + 0x18)] public VfxData* VfxData;
+    [FieldOffset(0x1980 + 0x18)] public VfxData* VfxData;
     [Obsolete("Use Vfx.VfxData2", true)]
-    [FieldOffset(0x19B0 + 0x20)] public VfxData* VfxData2;
+    [FieldOffset(0x1980 + 0x20)] public VfxData* VfxData2;
     [Obsolete("Use Vfx.Omen", true)]
-    [FieldOffset(0x19B0 + 0x48)] public VfxData* Omen;
+    [FieldOffset(0x1980 + 0x48)] public VfxData* Omen;
 
     [Obsolete("Use Vfx.VoiceId", false)]
     [FieldOffset(0x1B24)] public ushort VoiceId;
 
-    [FieldOffset(0x1B3A)] public byte StatusFlags4;
+    [FieldOffset(0x1B1E)] public byte StatusFlags4;
     // [FieldOffset(0x1418)] public CharacterSetup CharacterSetup;
     public CharacterSetup CharacterSetup => new CharacterSetup { };
 
-    [FieldOffset(0x17C0)] public Balloon Balloon;
+    [FieldOffset(0x1790)] public Balloon Balloon;
 
-    [FieldOffset(0x1A4C)] public float Alpha;
-    [FieldOffset(0x1A80)] public Companion* CompanionObject; // minion
-    [FieldOffset(0x1A98)] public fixed byte FreeCompanyTag[6];
+    [FieldOffset(0x1A1C)] public float Alpha;
+    [FieldOffset(0x1A50)] public Companion* CompanionObject; // minion
+    [FieldOffset(0x1A68)] public fixed byte FreeCompanyTag[6];
 
     [Obsolete("Use CharacterData.CombatTaggerId instead.", true)]
     [FieldOffset(0x1AB0)] public GameObjectID CombatTaggerId; // offset not updated for 6.5
 
     [Obsolete($"Use {nameof(TargetId)} instead.", true)]
-    [FieldOffset(0x1AB8)] public ulong TargetObjectID;
+    [FieldOffset(0x1A88)] public ulong TargetObjectID;
 
     /// <summary>
     /// The current (hard) target for this Character. This will not be set for the LocalPlayer.
@@ -131,7 +131,7 @@ public unsafe partial struct Character {
     /// Developers should generally use <see cref="GetTargetId"/> over reading this field directly, as it will
     /// properly handle resolving the target for the local player.
     /// </remarks>
-    [FieldOffset(0x1AB8)] public GameObjectID TargetId;
+    [FieldOffset(0x1A88)] public GameObjectID TargetId;
 
     /// <summary>
     /// The current soft target for this Character. This will not be set for the LocalPlayer.
@@ -140,37 +140,51 @@ public unsafe partial struct Character {
     /// Developers should generally use <see cref="GetSoftTargetId"/> over reading this field directly, as it will
     /// properly handle resolving the soft target for the local player.
     /// </remarks>
-    [FieldOffset(0x1AC0)] public GameObjectID SoftTargetId;
+    [FieldOffset(0x1A90)] public GameObjectID SoftTargetId;
 
-    [FieldOffset(0x1B00)] public uint NameID;
+    [FieldOffset(0x1AD8)] public uint NameID;
 
-    [FieldOffset(0x1B10)] public uint CompanionOwnerID;
+    [FieldOffset(0x1AE8)] public uint CompanionOwnerID;
 
-    [FieldOffset(0x1B1C)] public ushort CurrentWorld;
-    [FieldOffset(0x1B1E)] public ushort HomeWorld;
+    [FieldOffset(0x1AF4)] public ushort CurrentWorld;
+    [FieldOffset(0x1AF6)] public ushort HomeWorld;
 
-    [FieldOffset(0x1B26)] public byte EventState; // Leave for backwards compat. See Mode.
-    [FieldOffset(0x1B26)] public CharacterModes Mode;
-    [FieldOffset(0x1B27)] public byte ModeParam; // Different purpose depending on mode. See CharacterModes for more info.
+    [FieldOffset(0x1B00)] public byte EventState; // Leave for backwards compat. See Mode.
+    [FieldOffset(0x1B00)] public CharacterModes Mode;
+    [FieldOffset(0x1B01)] public byte ModeParam; // Different purpose depending on mode. See CharacterModes for more info.
 
     [Obsolete("Use CharacterData.CombatTagType instead.", true)]
     [FieldOffset(0x1B31)] public byte CombatTagType; // offset not updated for 6.5
 
     // Note: These 2 status flags might be just an ushort instead of 2 separate bytes.
 
+    // 0x1, 0x2, 0x4, 0x8 = Unknown
+    // 0x10 = IsHostile
+    // 0x20 = InCombat 
+    // 0x40 = OffHandDrawn
+    [FieldOffset(0x1B1B)] public byte StatusFlags;
+
+    // 0x1 = Unknown
+    // 0x2 = Unknown (always on for some reason?)
+    // 0x4 = Unknown
+    // 0x8 = PartyMember
+    // 0x10 = AllianceMember
+    // 0x20 = Friend
+    [FieldOffset(0x1B1F)] public byte StatusFlags2;
+
     // 0x1 = WeaponDrawn
     // 0x2 = Unknown (Appears to always be set)
-    [FieldOffset(0x1B38)] public byte StatusFlags3;
+    [FieldOffset(0x1B1C)] public byte StatusFlags3;
     // 0x20 = GPose wetness toggled
 
     public bool IsWeaponDrawn => (StatusFlags3 & 0x1) == 0x1;
-    public bool IsOffhandDrawn => (CharacterData.Flags1 & 0x40) == 0x40;
-    public bool InCombat => (CharacterData.Flags1 & 0x20) == 0x20;
-    public bool IsHostile => (CharacterData.Flags1 & 0x10) == 0x10;
+    public bool IsOffhandDrawn => (StatusFlags & 0x40) == 0x40;
+    public bool InCombat => (StatusFlags & 0x20) == 0x20;
+    public bool IsHostile => (StatusFlags & 0x10) == 0x10;
     public bool IsCasting => GetCastInfo() != null && (GetCastInfo()->IsCasting & 0x1) == 0x1;
-    public bool IsPartyMember => (CharacterData.Flags2 & 0x8) == 0x8;
-    public bool IsAllianceMember => (CharacterData.Flags2 & 0x10) == 0x10;
-    public bool IsFriend => (CharacterData.Flags2 & 0x20) == 0x20;
+    public bool IsPartyMember => (StatusFlags2 & 0x8) == 0x8;
+    public bool IsAllianceMember => (StatusFlags2 & 0x10) == 0x10;
+    public bool IsFriend => (StatusFlags2 & 0x20) == 0x20;
 
     public bool IsGPoseWet {
         get => (StatusFlags4 & 0x01) == 0x01;
@@ -224,7 +238,7 @@ public unsafe partial struct Character {
     [MemberFunction("E8 ?? ?? ?? ?? F3 0F 59 C7 48 8B CE")]
     public partial float CalculateHeight();
 
-    [VirtualFunction(79)]
+    [VirtualFunction(78)]
     public partial StatusManager* GetStatusManager();
 
     /// <summary>
@@ -232,13 +246,13 @@ public unsafe partial struct Character {
     /// May be null for certain Character subclasses, e.g. <see cref="Companion"/>.
     /// </summary>
     /// <returns>Returns a pointer to a CastInfo struct, or <c>null</c>.</returns>
-    [VirtualFunction(81)]
+    [VirtualFunction(80)]
     public partial CastInfo* GetCastInfo();
 
-    [VirtualFunction(85)]
+    [VirtualFunction(84)]
     public partial ForayInfo* GetForayInfo();
 
-    [VirtualFunction(87)]
+    [VirtualFunction(86)]
     public partial bool IsMount();
 
     [StructLayout(LayoutKind.Explicit, Size = 0x170)]
@@ -315,7 +329,7 @@ public unsafe partial struct Character {
         [FieldOffset(0x20)] public byte Flags;
         [FieldOffset(0x24)] public fixed uint MountedObjectIds[7];
 
-        [MemberFunction("E8 ?? ?? ?? ?? 48 8B 43 08 0F B6 90 ?? ?? ?? ?? 84 D2 74 0C 48 8B 4B 10")] // TODO 6.4
+        [MemberFunction("E8 ?? ?? ?? ?? 48 8B 43 ?? 0F B6 90")] // TODO 6.4
         public partial void SetupMount(short mountId, uint buddyModelTop, uint buddyModelBody, uint buddyModelLegs, byte buddyStain);
     }
 
@@ -328,7 +342,7 @@ public unsafe partial struct Character {
         [FieldOffset(0x18)] public ushort CompanionId;
     }
 
-    [StructLayout(LayoutKind.Explicit, Size = 0x68)]
+    [StructLayout(LayoutKind.Explicit, Size = 0x50)]
     public struct OrnamentContainer {
         [FieldOffset(0x00)] public void** ContainerVTable;
         [FieldOffset(0x08)] public BattleChara* OwnerObject;

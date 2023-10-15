@@ -21,14 +21,26 @@ public unsafe struct CharacterData {
     [FieldOffset(0x32)] public ushort MaxCraftingPoints;
     [FieldOffset(0x34)] public short TransformationId;
     [FieldOffset(0x36)] public short StatusEffectVFXId; // outdated since TitleID moved here
-    [FieldOffset(0x36)] public ushort TitleID;
+    // [FieldOffset(0x36)] public ushort TitleID;
+    public ushort TitleID {
+        get => 0;
+        set { /* 6.4 */ }
+    }
 
-    [FieldOffset(0x3A)] public byte ClassJob;
-    [FieldOffset(0x3B)] public byte Level;
+    [FieldOffset(0x38)] public byte ClassJob;
+    [FieldOffset(0x39)] public byte Level;
 
-    [FieldOffset(0x45)] public byte ShieldValue;
+    // [FieldOffset(0x45)] public byte ShieldValue;
+    public byte ShieldValue {
+        get => 0;
+        set { /* 6.4 */ }
+    }
 
-    [FieldOffset(0x47)] public byte OnlineStatus;
+    // [FieldOffset(0x47)] public byte OnlineStatus;
+    public byte OnlineStatus {
+        get => 0;
+        set { /* 6.4 */ }
+    }
     // [FieldOffset(0x49)] public byte Battalion; // used for determining friend/enemy state, 6.5
     public byte Battalion {
         get => 0;
@@ -39,7 +51,11 @@ public unsafe struct CharacterData {
     // 0x10 = IsHostile
     // 0x20 = InCombat 
     // 0x40 = OffHandDrawn
-    [FieldOffset(0x4A)] public byte Flags1; // 0x1F2 - 
+    // [FieldOffset(0x4A)] public byte Flags1; // 0x1F2 - 
+    public byte Flags1 {
+        get => 0;
+        set { /* 6.4 */ }
+    }
 
     // 0x1 = Unknown
     // 0x2 = Unknown (always on for some reason?)
@@ -47,7 +63,11 @@ public unsafe struct CharacterData {
     // 0x8 = PartyMember
     // 0x10 = AllianceMember
     // 0x20 = Friend
-    [FieldOffset(0x4B)] public byte Flags2;
+    // [FieldOffset(0x4B)] public byte Flags2;
+    public byte Flags2 {
+        get => 0;
+        set { /* 6.4 */ }
+    }
 
     /// <summary>
     /// The type of tagger, as represented in <see cref="CombatTaggerId"/>. Known values:

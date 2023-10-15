@@ -21,7 +21,7 @@ public unsafe partial struct InfoProxyCommonList {
     public readonly ReadOnlySpan<CharacterData> CharDataSpan => new(CharData, (int)InfoProxyPageInterface.InfoProxyInterface.EntryCount); // It cant be higher than 200 at this time anyways so this is fine
     public readonly ReadOnlySpan<CharacterIndex> CharIndexSpan => new(IndexData, (int)InfoProxyPageInterface.InfoProxyInterface.EntryCount); // It cant be higher than 200 at this time anyways so this is fine
 
-    [MemberFunction("E8 ?? ?? ?? ?? 48 8B D0 48 8B CB E8 ?? ?? ?? ?? 41 C6 46")]
+    [MemberFunction("3B 51 ?? 73 ?? 8B C2 48 8D 14 ?? 48 8B 81")]
     public partial ulong GetContentIDForEntry(uint idx);
 
     [MemberFunction("E8 ?? ?? ?? ?? 48 85 FF 74 55")]

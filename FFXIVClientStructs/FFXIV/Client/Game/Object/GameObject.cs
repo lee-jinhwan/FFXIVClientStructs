@@ -88,13 +88,13 @@ public unsafe partial struct GameObject {
     [VirtualFunction(47)]
     public partial uint GetNpcID(); //TODO: rename to GetNameId
 
-    [VirtualFunction(57)]
+    [VirtualFunction(56)]
     public partial bool IsDead();
 
-    [VirtualFunction(58)]
+    [VirtualFunction(57)]
     public partial bool IsNotMounted();
 
-    [VirtualFunction(61)]
+    [VirtualFunction(60)]
     public partial bool IsCharacter();
 
     [MemberFunction("E8 ?? ?? ?? ?? 0F 28 74 24 ?? 80 3D")]

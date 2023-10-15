@@ -13,32 +13,32 @@ public unsafe partial struct AgentInventoryContext {
     [FieldOffset(0x30)] public int ContextItemCount;
 
     [FieldOffset(0x38)] public fixed byte EventParams[0x10 * 98];
-    [FieldOffset(0x658)] public fixed byte EventIdArray[84];
-    [FieldOffset(0x6AC)] public uint ContextItemDisabledMask;
-    [FieldOffset(0x6B0)] public uint ContextItemSubmenuMask;
+    [FieldOffset(0x558)] public fixed byte EventIdArray[84];
+    [FieldOffset(0x5A8)] public uint ContextItemDisabledMask;
+    [FieldOffset(0x5AC)] public uint ContextItemSubmenuMask;
 
     public Span<AtkValue> EventParamsSpan => new(Unsafe.AsPointer(ref EventParams[0]), 98);
     public Span<byte> EventIdSpan => new(Unsafe.AsPointer(ref EventIdArray[0]), 84);
 
-    [FieldOffset(0x6B4)] public int PositionX;
-    [FieldOffset(0x6B8)] public int PositionY;
+    [FieldOffset(0x5B0)] public int PositionX;
+    [FieldOffset(0x5B4)] public int PositionY;
 
-    [FieldOffset(0x6C8)] public uint OwnerAddonId;
-    [FieldOffset(0x6CC)] public int YesNoPosition; // 2 shorts combined, gets passed as int arg, default = -1
-    [FieldOffset(0x6CC)] public short YesNoX;
-    [FieldOffset(0x6CE)] public short YesNoY;
-    [FieldOffset(0x6D0)] public InventoryType TargetInventoryId;
-    [FieldOffset(0x6D4)] public int TargetInventorySlotId;
+    [FieldOffset(0x5C8)] public uint OwnerAddonId;
+    [FieldOffset(0x5CC)] public int YesNoPosition; // 2 shorts combined, gets passed as int arg, default = -1
+    [FieldOffset(0x5CC)] public short YesNoX;
+    [FieldOffset(0x5CE)] public short YesNoY;
+    [FieldOffset(0x5D0)] public InventoryType TargetInventoryId;
+    [FieldOffset(0x5D4)] public int TargetInventorySlotId;
 
-    [FieldOffset(0x6DC)] public uint DummyInventoryId;
+    [FieldOffset(0x5DC)] public uint DummyInventoryId;
 
-    [FieldOffset(0x6E8)] public InventoryItem* TargetInventorySlot;
-    [FieldOffset(0x6F0)] public InventoryItem TargetDummyItem;
-    [FieldOffset(0x728)] public InventoryType BlockedInventoryId;
-    [FieldOffset(0x72C)] public int BlockedInventorySlotId;
+    [FieldOffset(0x5E8)] public InventoryItem* TargetInventorySlot;
+    [FieldOffset(0x5F0)] public InventoryItem TargetDummyItem;
+    [FieldOffset(0x5D0)] public InventoryType BlockedInventoryId;
+    [FieldOffset(0x5D4)] public int BlockedInventorySlotId;
 
-    [FieldOffset(0x738)] public InventoryItem DiscardDummyItem;
-    [FieldOffset(0x770)] public int DialogType; // ?? 1 = Discard, 2 = LowerQuality
+    [FieldOffset(0x638)] public InventoryItem DiscardDummyItem;
+    [FieldOffset(0x670)] public int DialogType; // ?? 1 = Discard, 2 = LowerQuality
 
     [MemberFunction("83 B9 ?? ?? ?? ?? ?? 7E ?? 39 91")]
     public partial void OpenForItemSlot(uint inventory, int slot, int a4, uint addonId);

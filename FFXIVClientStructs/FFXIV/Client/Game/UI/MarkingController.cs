@@ -9,7 +9,7 @@ public unsafe partial struct MarkingController {
     [FieldOffset(0x100)] public fixed long MarkerTimeArray[17]; //(1000 * QueryPerformanceCounter / QueryPerformanceFrequency)
 
     [FixedSizeArray<FieldMarker>(8)]
-    [FieldOffset(0x1E0)] public fixed byte FieldMarkerArray[8 * 0x20];
+    [FieldOffset(0x1B0)] public fixed byte FieldMarkerArray[8 * 0x20];
 
     [StaticAddress("48 8D 0D ?? ?? ?? ?? 4C 8B 85", 3)]
     public static partial MarkingController* Instance();

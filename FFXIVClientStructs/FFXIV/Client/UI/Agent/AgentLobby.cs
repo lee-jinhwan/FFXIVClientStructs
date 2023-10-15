@@ -12,27 +12,27 @@ public unsafe partial struct AgentLobby {
     [FieldOffset(0)] public AgentInterface AgentInterface;
 
     [FieldOffset(0x40)] public LobbyData LobbyData; // for lack of a better name
-    [FieldOffset(0xA00)] public UIModule* UIModule;
+    [FieldOffset(0x888)] public UIModule* UIModule;
 
-    [FieldOffset(0xA40)] public ExcelSheet* ErrorSheet;
-    [FieldOffset(0xA48)] public ExcelSheet* LobbySheet;
+    [FieldOffset(0x8C8)] public ExcelSheet* ErrorSheet;
+    [FieldOffset(0x8D0)] public ExcelSheet* LobbySheet;
     //[FieldOffset(0xA50)] public NetworkModuleProxy* NetworkModuleProxy;
 
-    [FieldOffset(0x10E0)] public sbyte ServiceAccountIndex;
-    [FieldOffset(0x10E1)] public sbyte SelectedCharacterIndex; // index in CharaSelectCharacterList
+    [FieldOffset(0xF68)] public sbyte ServiceAccountIndex;
+    [FieldOffset(0xF69)] public sbyte SelectedCharacterIndex; // index in CharaSelectCharacterList
     [Obsolete("Renamed to SelectedCharacterContentId", true)]
-    [FieldOffset(0x10E8)] public ulong SelectedCharacterId;
-    [FieldOffset(0x10E8)] public ulong SelectedCharacterContentId;
-    [FieldOffset(0x10F0)] public byte DataCenter;
+    [FieldOffset(0xF70)] public ulong SelectedCharacterId;
+    [FieldOffset(0xF70)] public ulong SelectedCharacterContentId;
+    [FieldOffset(0xF78)] public byte DataCenter;
 
-    [FieldOffset(0x10F2)] public short WorldIndex; // index in CurrentDataCenterWorlds
-    [FieldOffset(0x10F4)] public ushort WorldId;
+    [FieldOffset(0xF7A)] public short WorldIndex; // index in CurrentDataCenterWorlds
+    [FieldOffset(0xF7C)] public ushort WorldId;
 
-    [FieldOffset(0x1110)] public uint IdleTime;
+    [FieldOffset(0xF98)] public uint IdleTime;
 
-    [FieldOffset(0x1228)] public bool TemporaryLocked; // "Please wait and try logging in later."
+    [FieldOffset(0x10B0)] public bool TemporaryLocked; // "Please wait and try logging in later."
 
-    [FieldOffset(0x1DA4)] public bool HasShownCharacterNotFound; // "The character you last logged out with in this play environment could not be found on the current data center."
+    [FieldOffset(0x1C2C)] public bool HasShownCharacterNotFound; // "The character you last logged out with in this play environment could not be found on the current data center."
 
     [MemberFunction("E8 ?? ?? ?? ?? 84 C0 74 07 C6 87 ?? ?? ?? ?? ?? 48 8B 4C 24")]
     public readonly partial void UpdateCharaSelectDisplay(sbyte index, bool a2);

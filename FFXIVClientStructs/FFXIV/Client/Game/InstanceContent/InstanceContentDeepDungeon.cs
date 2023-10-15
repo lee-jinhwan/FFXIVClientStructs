@@ -11,14 +11,14 @@ public unsafe partial struct InstanceContentDeepDungeon {
     [FixedSizeArray<DeepDungeonChestInfo>(16)]
     [FieldOffset(0x1D90)] public fixed byte Chests[0x02 * 16];
 
-    [FieldOffset(0x1DC0)] public uint BonusLootItemId;
-    [FieldOffset(0x1DC4)] public byte Floor;
-    [FieldOffset(0x1DC5)] public byte ReturnProgress;
-    [FieldOffset(0x1DC6)] public byte PassageProgress;
+    [FieldOffset(0x1DB8)] public uint BonusLootItemId;
+    [FieldOffset(0x1DBC)] public byte Floor;
+    [FieldOffset(0x1DBD)] public byte ReturnProgress;
+    [FieldOffset(0x1DBE)] public byte PassageProgress;
 
-    [FieldOffset(0x1DC8)] public byte WeaponLevel;
-    [FieldOffset(0x1DC9)] public byte ArmorLevel;
-    [FieldOffset(0x1DCB)] public byte HoardCount;
+    [FieldOffset(0x1DC0)] public byte WeaponLevel;
+    [FieldOffset(0x1DC1)] public byte ArmorLevel;
+    [FieldOffset(0x1DC3)] public byte HoardCount;
 
     [StructLayout(LayoutKind.Explicit, Size = 0x08)]
     public struct DeepDungeonPartyInfo {

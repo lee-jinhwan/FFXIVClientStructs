@@ -16,20 +16,20 @@ public unsafe partial struct MJIPastureHandler {
     /// the Companion EXD sheet. See <see cref="MinionSlots"/> if information about minion locations is required.
     /// </summary>
     // Warning: This array will change size every time new minions are added!! Should be the row count of the Companion sheet.
-    [FixedSizeArray<bool>(496)]
-    [FieldOffset(0x6F8)] public fixed byte RoamingMinions[496];
+    [FixedSizeArray<bool>(480)]
+    [FieldOffset(0x6F8)] public fixed byte RoamingMinions[480];
 
     /// <summary>
     /// An array containing information on all the minion slots present on the Island Sanctuary.
     /// This array is indexed by an internal ID and does not appear to be grouped by location or similar.
     /// </summary>
-    [FixedSizeArray<MJIMinionSlot>(50)]
-    [FieldOffset(0x8E8)] public fixed byte MinionSlots[50 * MJIMinionSlot.Size];
+    [FixedSizeArray<MJIMinionSlot>(40)]
+    [FieldOffset(0x8B8)] public fixed byte MinionSlots[40 * MJIMinionSlot.Size];
 
     /// <summary>
     /// Gets the current number of minions roaming the Island Sanctuary.
     /// </summary>
-    [MemberFunction("E8 ?? ?? ?? ?? 3A C3 72 1E")]
+    [MemberFunction("E8 ?? ?? ?? ?? 3C 28 72 1E")]
     public partial byte GetCurrentRoamingMinionCount();
 }
 

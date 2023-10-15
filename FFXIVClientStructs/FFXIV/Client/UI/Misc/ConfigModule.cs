@@ -9,15 +9,15 @@ namespace FFXIVClientStructs.FFXIV.Client.UI.Misc;
 // For updating offsets:
 //  "48 8B CB E8 ?? ?? ?? ?? 48 8B 7C 24 ?? 33 C0 48 8B 5C 24"
 //    16 * (v6 + ConfigOptionCount * a6) + a1 + {ValuesFieldOffset}
-[StructLayout(LayoutKind.Explicit, Size = 0xE348)]
+[StructLayout(LayoutKind.Explicit, Size = 0xDEE8)]
 public unsafe partial struct ConfigModule {
     public static ConfigModule* Instance() => Framework.Instance()->GetUiModule()->GetConfigModule();
 
-    public const int ConfigOptionCount = 715;
+    public const int ConfigOptionCount = 701;
     [FieldOffset(0x28)] public UIModule* UIModule;
     [FieldOffset(0x2C8)] private fixed byte options[Option.Size * ConfigOptionCount];
 
-    [FieldOffset(0x5C38)] private fixed byte values[0x10 * ConfigOptionCount];
+    [FieldOffset(0x5A78)] private fixed byte values[0x10 * ConfigOptionCount];
 
     [MemberFunction("E8 ?? ?? ?? ?? C6 47 4D 00")]
     [Obsolete("Use Framework.SystemConfig functions.", true)]

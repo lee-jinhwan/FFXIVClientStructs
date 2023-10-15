@@ -26,14 +26,14 @@ public unsafe partial struct BannerModule {
     /// </summary>
     /// <param name="bannerId">The BannerId of the Banner to delete.</param>
     /// <returns>bool if the deletion was successful or not.</returns>
-    [MemberFunction("E8 ?? ?? ?? ?? 40 0A F0 FF C3 48 FF C7 83 FB 6E 72 D6 40 0F B6 C6 48 8B 8C 24 ?? ?? ?? ?? 48 33 CC E8 ?? ?? ?? ?? 4C 8D 9C 24 ?? ?? ?? ?? 49 8B 5B 18 49 8B 6B 20 49 8B 73 28 49 8B E3 5F C3 CC CC")]
+    [MemberFunction("E8 ?? ?? ?? ?? 84 C0 75 0A FF C3 48 FF C7 83 FB 64 72 D5 48 8B 8C 24 ?? ?? ?? ?? 48 33 CC E8 ?? ?? ?? ?? 4C 8D 9C 24 ?? ?? ?? ?? 49 8B 5B 18 49 8B 6B 20 49 8B 73 28 49 8B E3 5F")]
     public partial bool DeleteBanner(int bannerId);
 
     /// <summary>
     /// Get the next free BannerId.
     /// </summary>
     /// <returns>Data->NextId</returns>
-    [MemberFunction("E8 ?? ?? ?? ?? 83 F8 6E 7C 15")]
+    [MemberFunction("E8 ?? ?? ?? ?? 8B F0 40 80 FD")]
     public partial byte GetNextId();
 
     /// <summary>

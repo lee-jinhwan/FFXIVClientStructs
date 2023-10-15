@@ -64,7 +64,7 @@ public unsafe partial struct PlayerState {
     [FieldOffset(0x438)] public uint NumFishCaught;
     [FieldOffset(0x43C)] public uint FishingBait;
 
-    [FieldOffset(0x46C)] public uint NumSpearfishCaught;
+    [FieldOffset(0x464)] public uint NumSpearfishCaught;
 
     /// <remarks>
     /// Index is column 27 of ContentRoulette sheet.<br/>
@@ -81,7 +81,7 @@ public unsafe partial struct PlayerState {
     [FieldOffset(0x509)] public fixed byte UnlockFlags[44];
 
     /// <summary>Carrier Level of Delivery Moogle Quests</summary>
-    [FieldOffset(0x539)] public byte DeliveryLevel;
+    [FieldOffset(0x531)] public byte DeliveryLevel;
 
     /// <summary>
     /// Flag containing information about which DoH job the player is specialized in.
@@ -92,30 +92,30 @@ public unsafe partial struct PlayerState {
     /// <see cref="IsMeisterFlagMaxCount" /><br/>
     /// <see cref="IsMeisterFlagAndHasSoulStoneEquipped" />
     /// </remarks>
-    [FieldOffset(0x53B)] public byte MeisterFlag;
+    [FieldOffset(0x533)] public byte MeisterFlag;
 
-    [FieldOffset(0x540)] public uint SquadronMissionCompletionTimestamp;
-    [FieldOffset(0x544)] public uint SquadronTrainingCompletionTimestamp;
-    [FieldOffset(0x548)] public ushort ActiveGcArmyExpedition;
-    [FieldOffset(0x54A)] public ushort ActiveGcArmyTraining;
+    [FieldOffset(0x538)] public uint SquadronMissionCompletionTimestamp;
+    [FieldOffset(0x53C)] public uint SquadronTrainingCompletionTimestamp;
+    [FieldOffset(0x540)] public ushort ActiveGcArmyExpedition;
+    [FieldOffset(0x542)] public ushort ActiveGcArmyTraining;
 
     #region Weekly Bonus/Weekly Bingo/Wondrous Tails Fields (packet reader: "4C 8B D2 48 8D 81")
 
     /// <summary>RowIds of WeeklyBingoOrderData sheet</summary>
-    [FieldOffset(0x658)] public fixed byte WeeklyBingoOrderData[16];
+    [FieldOffset(0x640)] public fixed byte WeeklyBingoOrderData[16];
     /// <summary>RowIds of WeeklyBingoRewardData sheet</summary>
-    [FieldOffset(0x668)] public fixed byte WeeklyBingoRewardData[4];
+    [FieldOffset(0x650)] public fixed byte WeeklyBingoRewardData[4];
     /// <summary>Bitflags of placed stickers.</summary>
     /// <remarks>Use IsWeeklyBingoStickerPlaced(index) and WeeklyBingoNumPlacedStickers instead.</remarks>
-    [FieldOffset(0x66C)] private readonly ushort _weeklyBingoStickers;
+    [FieldOffset(0x654)] private readonly ushort _weeklyBingoStickers;
 
     /// <remarks>Use GetWeeklyBingoExpireUnixTimestamp(), WeeklyBingoNumSecondChancePoints and HasWeeklyBingoJournal instead</remarks>
-    [FieldOffset(0x670)] private readonly uint _weeklyBingoFlags;
-    [FieldOffset(0x674)] private fixed byte _weeklyBingoTaskStatus[4];
-    [FieldOffset(0x678)] public byte WeeklyBingoRequestOpenBingoNo;
+    [FieldOffset(0x658)] private readonly uint _weeklyBingoFlags;
+    [FieldOffset(0x65C)] private fixed byte _weeklyBingoTaskStatus[4];
+    [FieldOffset(0x660)] public byte WeeklyBingoRequestOpenBingoNo;
 
-    [FieldOffset(0x6B4)] public byte WeeklyBingoExpMultiplier;
-    [FieldOffset(0x6B5)] public bool WeeklyBingoUnk63;
+    [FieldOffset(0x69C)] public byte WeeklyBingoExpMultiplier;
+    [FieldOffset(0x69D)] public bool WeeklyBingoUnk63;
 
     #endregion
 
@@ -180,7 +180,7 @@ public unsafe partial struct PlayerState {
     /// </summary>
     /// <param name="mountId">The ID of the mount to look up.</param>
     /// <returns>Returns true if the mount has been unlocked.</returns>
-    [MemberFunction("E8 ?? ?? ?? ?? 84 C0 74 5D 8B CB")]
+    [MemberFunction("E8 ?? ?? ?? ?? 84 C0 74 5C 8B CB")]
     public partial bool IsMountUnlocked(uint mountId);
 
     /// <summary>

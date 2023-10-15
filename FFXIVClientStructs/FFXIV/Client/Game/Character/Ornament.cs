@@ -10,9 +10,9 @@ namespace FFXIVClientStructs.FFXIV.Client.Game.Character;
 public unsafe partial struct Ornament {
     [FieldOffset(0x0)] public Character Character;
 
-    [FieldOffset(0x1B40)] public uint OrnamentId;
-    [FieldOffset(0x1B44)] public byte AttachmentPoint;
+    [FieldOffset(0x1B20)] public uint OrnamentId;
+    [FieldOffset(0x1B24)] public byte AttachmentPoint;
 
-    [MemberFunction("48 89 5C 24 ?? 41 54 41 56 41 57 48 83 EC ?? 4D 8B F8")]
+    [MemberFunction("E8 ?? ?? ?? ?? 48 8D 55 ?? 48 8D 4D ?? E8 ?? ?? ?? ?? 44 8B 4D")]
     public partial void SetupOrnament(uint* unk1, float* unk2);
 }
